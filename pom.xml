@@ -9,6 +9,11 @@
 
     <name>project.switcher</name>
 	
+	<inceptionYear>2013</inceptionYear>
+	<organization>
+		<name>Toben</name>
+	</organization>
+	
 	<developers>
 		<developer>
 			<name>Tobias Warneke</name>
