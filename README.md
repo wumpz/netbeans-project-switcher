@@ -3,7 +3,7 @@ netbeans-project-switcher
 
 Presents one single project of the projects tree.
 
-Using Netbeans I found it alway hard to navigate through the projects tree. 
+Using Netbeans I found it always hard to navigate through the projects tree. 
 Especially with many open tree nodes, you have to scroll backwards and forward to find 
 the node you need.
 
