@@ -39,8 +39,8 @@ persistenceType = TopComponent.PERSISTENCE_ALWAYS)
     displayName = "#CTL_ProjectFilterAction",
 preferredID = "ProjectFilterTopComponent")
 @Messages({
-	"CTL_ProjectFilterAction=Project Filter",
-	"CTL_ProjectFilterTopComponent=Project Filter Window",
+	"CTL_ProjectFilterAction=Project Switcher",
+	"CTL_ProjectFilterTopComponent=Project Switcher Window",
 	"HINT_ProjectFilterTopComponent=Visualizes a single project."
 })
 public final class ProjectFilterTopComponent extends TopComponent implements ExplorerManager.Provider {
@@ -96,7 +96,6 @@ public final class ProjectFilterTopComponent extends TopComponent implements Exp
         add(beanTreeView1, java.awt.BorderLayout.CENTER);
         add(projectChoicePanel, java.awt.BorderLayout.NORTH);
     }// </editor-fold>//GEN-END:initComponents
-	private static final Logger logger = Logger.getLogger("toben");
 
 	private void loadOpenProjectsList() {
 		List<String> selectedNodesNames = new LinkedList<String>();
@@ -154,12 +153,10 @@ public final class ProjectFilterTopComponent extends TopComponent implements Exp
 
 	@Override
 	public void componentOpened() {
-		// TODO add custom code on component opening
 	}
 
 	@Override
 	public void componentClosed() {
-		// TODO add custom code on component closing
 	}
 
 	void writeProperties(java.util.Properties p) {
