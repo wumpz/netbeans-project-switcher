@@ -3,7 +3,7 @@
 
 	<groupId>org.tw.netbeans</groupId>
 	<artifactId>project.switcher</artifactId>
-	<version>1.2-SNAPSHOT</version>
+	<version>1.2</version>
 	<packaging>nbm</packaging>
 
 	<name>project.switcher</name>
@@ -24,7 +24,7 @@
 		<connection>scm:git:https://github.com/wumpz/netbeans-project-switcher.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:wumpz/netbeans-project-switcher.git</developerConnection>
 		<url>https://github.com/wumpz/netbeans-project-switcher.git</url>
-	  <tag>HEAD</tag>
+	  <tag>project.switcher-1.2</tag>
   </scm>
 	
 	<licenses>
