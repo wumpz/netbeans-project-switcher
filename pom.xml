@@ -154,7 +154,7 @@
 					<execution>
 						<id>first</id>
 						<goals>
-							<goal>update-file-header</goal>
+							<goal>update-file-header</goal> 
 						</goals>
 						<phase>process-sources</phase>
 						<configuration>
