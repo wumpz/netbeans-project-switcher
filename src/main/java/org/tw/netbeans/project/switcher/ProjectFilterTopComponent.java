@@ -43,18 +43,18 @@ import java.util.List;
 import org.openide.util.Exceptions;
 
 @ConvertAsProperties(
-    dtd = "-//org.tw.netbeans.project.switcher//ProjectFilter//EN",
-autostore = false)
+		dtd = "-//org.tw.netbeans.project.switcher//ProjectFilter//EN",
+		autostore = false)
 @TopComponent.Description(
-    preferredID = "ProjectFilterTopComponent",
-//iconBase="SET/PATH/TO/ICON/HERE", 
-persistenceType = TopComponent.PERSISTENCE_ALWAYS)
+		preferredID = "ProjectFilterTopComponent",
+		//iconBase="SET/PATH/TO/ICON/HERE", 
+		persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 @TopComponent.Registration(mode = "explorer", openAtStartup = false)
 @ActionID(category = "Window", id = "org.tw.netbeans.project.switcher.ProjectFilterTopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
-    displayName = "#CTL_ProjectFilterAction",
-preferredID = "ProjectFilterTopComponent")
+		displayName = "#CTL_ProjectFilterAction",
+		preferredID = "ProjectFilterTopComponent")
 @Messages({
 	"CTL_ProjectFilterAction=Project Switcher",
 	"CTL_ProjectFilterTopComponent=Project Switcher Window",
@@ -67,7 +67,6 @@ public final class ProjectFilterTopComponent extends TopComponent implements Exp
 		setName(Bundle.CTL_ProjectFilterTopComponent());
 		setToolTipText(Bundle.HINT_ProjectFilterTopComponent());
 		associateLookup(ExplorerUtils.createLookup(manager, getActionMap()));
-
 
 		projectChoicePanel.getExplorerManager().addPropertyChangeListener(new PropertyChangeListener() {
 			@Override
@@ -151,16 +150,20 @@ public final class ProjectFilterTopComponent extends TopComponent implements Exp
 		} catch (PropertyVetoException ex) {
 			Exceptions.printStackTrace(ex);
 		}
-		
-		if (projectChoicePanel.getExplorerManager().getSelectedNodes().length==0) {
+
+		if (projectChoicePanel.getExplorerManager().getSelectedNodes().length == 0) {
 			Node n = projectChoicePanel.getExplorerManager().getRootContext().getChildren().getNodeAt(0);
 			try {
-				projectChoicePanel.getExplorerManager().setSelectedNodes(new Node[] {n});
+				if (n == null) {
+					projectChoicePanel.getExplorerManager().setSelectedNodes(new Node[0]);
+				} else {
+					projectChoicePanel.getExplorerManager().setSelectedNodes(new Node[]{n});
+				}
 			} catch (PropertyVetoException ex) {
 				Exceptions.printStackTrace(ex);
 			}
 		}
-			
+
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
