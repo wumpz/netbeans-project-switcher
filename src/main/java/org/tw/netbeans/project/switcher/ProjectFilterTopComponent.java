@@ -24,6 +24,8 @@ package org.tw.netbeans.project.switcher;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyVetoException;
+import java.util.Arrays;
+import java.util.Comparator;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -40,6 +42,8 @@ import org.openide.nodes.Node;
 import org.openide.windows.WindowManager;
 import java.util.LinkedList;
 import java.util.List;
+import org.netbeans.api.project.ProjectInformation;
+import org.netbeans.api.project.ProjectUtils;
 import org.openide.util.Exceptions;
 
 @ConvertAsProperties(
@@ -125,7 +129,17 @@ public final class ProjectFilterTopComponent extends TopComponent implements Exp
 		projectChoicePanel.getExplorerManager().setRootContext(new AbstractNode(new Children.Keys<Project>() {
 			@Override
 			protected void addNotify() {
-				this.setKeys(OpenProjects.getDefault().getOpenProjects());
+                final Project[] openProjects = OpenProjects.getDefault().getOpenProjects();
+                Arrays.sort(openProjects, new Comparator<Project>() {
+
+                    @Override
+                    public int compare(Project o1, Project o2) {
+                        ProjectInformation infop1 = ProjectUtils.getInformation(o1);
+                        ProjectInformation infop2 = ProjectUtils.getInformation(o2);
+                        return infop1.getDisplayName().compareTo(infop2.getDisplayName());
+                    }
+                } );
+				this.setKeys(openProjects);
 			}
 
 			@Override
